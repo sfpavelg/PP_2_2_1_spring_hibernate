@@ -15,7 +15,9 @@ public class Car {
     private int series;
 
     @OneToOne(mappedBy = "car", cascade =
-            {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})    private User user;
+            {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    private User user;
+
     public Car() {
     }
 
