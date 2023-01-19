@@ -1,21 +1,24 @@
 package hiber.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "cars")
 public class Car {
 
     @Id
-    @GeneratedValue
-    private Long id;
-
+//    @GeneratedValue
+    private int id;
+    @Column(name = "model")
     private String model;
-
+    @Column(name = "series")
     private int series;
 
-    @OneToOne(mappedBy = "car", cascade =
-            {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    //    @OneToOne(mappedBy = "car", cascade =
+//            {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     private User user;
 
     public Car() {
@@ -26,11 +29,17 @@ public class Car {
         this.series = series;
     }
 
-    public Long getId() {
+    public Car(String model, int series, User user) {
+        this.model = model;
+        this.series = series;
+        this.user = user;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
