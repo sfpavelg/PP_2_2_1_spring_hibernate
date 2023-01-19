@@ -23,7 +23,7 @@ public class MainApp {
         carService.addCar(new Car("BMW", 100, userTom));
 
         User userIvan = new User("Ivan", "Ivanov", "ivan@mail.ru");
-        userService.add(userTom);
+        userService.add(userIvan);
         carService.addCar(new Car("Lada", 001, userIvan));
 
         User userPetr = new User("Petr", "Petrov", "petr@mail.ru");
