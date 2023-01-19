@@ -9,6 +9,7 @@ public class Car {
 
     @Id
 //    @GeneratedValue
+    @Column(name = "id",nullable = false)
     private int id;
     @Column(name = "model")
     private String model;
@@ -17,8 +18,9 @@ public class Car {
 
     //    @OneToOne(mappedBy = "car", cascade =
 //            {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    @OneToOne(fetch = FetchType.LAZY)
+//    @OneToOne(fetch = FetchType.LAZY)
     @MapsId
+    @OneToOne(optional = false)
     private User user;
 
     public Car() {
